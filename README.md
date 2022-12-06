@@ -1,2 +1,2 @@
 # Linear-Regression-Google-Stock-Analysis
-Created best fit lines from yearly average, high and low. Then created a price prediction and range. Compared results from 2006-current data to 2017-current data.
+Created best fit lines from yearly averages, highs and lows for 2006-current and 2017-current data. Then creates a price prediction and range for both. Also calculates a standard deviation to give unusual price range.
