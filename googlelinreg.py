@@ -53,6 +53,11 @@ def slope_intercept(yma, pma, ta, tya):
 
 ma, ba = slope_intercept(yma, pma, ta, tya)
 
+total = 0
+for a in range(len(google)):
+    total += (float(google[a][1]) - ma)**2
+sd = (total/(len(google)))**(1/2)
+
 ##print(f"Average: y = {ma}x + {ba}")
 
 yl = 0
@@ -106,6 +111,11 @@ def slope_intercept(ym5, pm5, t5, ty5):
     return m5, b5
 
 m5, b5 = slope_intercept(ym5, pm5, t5, ty5)
+
+total5 = 0
+for a in range(len(google)):
+    total5 += (float(google[a][1]) - m5)**2
+sd5 = (total5/(len(google)))**(1/2)
 
 y5l = 0
 p5l = 0
@@ -166,4 +176,5 @@ value = float(input("What year would you like to predict? "))
 print(f"Using data since 2006 would predict a price estimate of ${round((ma*value) + ba, 2)} in the year {int(value)}, but using more recent data sice 2017 the estimated price would be ${round((m5*value) + b5, 2)} which is {round(((m5*value) + b5) / ((ma*value) + ba), 2)} times greater.")
 print(f"The average return since 2006 is {round(ma, 2)}% and the average return since 2017 is {round(m5, 2)}%.")
 print(f"The 2006 data estimates a price range of ${round((ml*value) + bl, 2)} to ${round((mh*value) + bh, 2)} whereas the 2017 data predicts a range of ${round((m5l*value) + b5l, 2)} to ${round((m5h*value) + b5h, 2)} the range of the 2017 data is {round((((m5l*value) + b5l) - ((m5h*value) + b5h)) / (((ml*value) + bl) - ((mh*value) + bh)), 2)} times greater.")
-
+print(f"Using 2006 data the standard deviation is {round(sd,2)}, from this we would consider an unusaul high price to be ${round(((ma*value) + ba) + 2*sd, 2)} and unusaully low at ${round(((ma*value) + ba) - 2*sd, 2)}")
+print(f"Using 2017 data the standard deviation is {round(sd5,2)}, from this we would consider an unusaul high price to be ${round(((m5*value) + b5) + 2*sd5, 2)} and unusaully low at ${round(((m5*value) + b5) - 2*sd5, 2)}")
