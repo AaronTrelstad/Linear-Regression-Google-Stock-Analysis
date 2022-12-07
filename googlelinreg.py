@@ -32,7 +32,6 @@ ya = 0
 pa = 0
 ta = []
 tya = []
-
 with open('googleaverage.csv') as f:
     reader = csv.reader(f)
     google = list(reader)
@@ -61,9 +60,10 @@ sd = (total/(len(google)))**(1/2)
 cor = 0
 resi = 0
 tot = 0
+c = 0
 for c in range(len(google)):
-    resi += (float(google[c][1]) - ma)**2
-    tot += (float(google[c][1])**2)
+    resi += (float(google[c][1]) - (ma * (2022 - c) + ba))**2
+    tot += (float(google[c][1]) - ma)**2
 cor = 1 - (resi/tot)
 
 
@@ -121,8 +121,6 @@ def slope_intercept5a(ym5, pm5, t5, ty5):
 
 m5, b5 = slope_intercept5a(ym5, pm5, t5, ty5)
 
-##print(f"5 year average: y = {m5}x + {b5}")
-
 total5 = 0
 for a in range(len(google)):
     total5 += (float(google[a][1]) - m5)**2
@@ -131,9 +129,10 @@ sd5 = (total5/(len(google)))**(1/2)
 cor5 = 0
 resi5 = 0
 tot5 = 0
-for c in range(len(google)):
-    resi5 += (float(google[c][1]) - m5)**2
-    tot5 += (float(google[c][1])**2)
+c5 = 0
+for c5 in range(len(google)):
+    resi5 += (float(google[c5][1]) - (m5 * (2022 - c5) + b5))**2
+    tot5 += (float(google[c5][1]) - m5)**2
 cor5 = 1 - (resi5/tot5)
 
 y5l = 0
@@ -188,8 +187,6 @@ def slope_intercept5h(ym5h, pm5h, t5h, ty5h):
 
 m5h, b5h = slope_intercept5h(ym5h, pm5h, t5h, ty5h)
 
-##print(f"5 year high: y = {m5h}x + {b5h}")
-
 value = float(input("What year would you like to predict? "))
 print(f"Price Estimate:${round((ma*value) + ba, 2)}(2006-current), ${round((m5*value) + b5, 2)}(2017-current), 2017 is {round(((m5*value) + b5) / ((ma*value) + ba), 2)} times higher")
 print(f"Average Return:{round(ma, 2)}% since 2006 and {round(m5, 2)}% since 2017")
@@ -197,4 +194,4 @@ print(f"Using 2006 data the standard deviation is {round(sd,2)}, meaning there i
 print(f"Using 2017 data the standard deviation is {round(sd5,2)}, meaning there is a 68% chance the stock price is between ${round(((m5*value) + b5) - sd5, 2)} and ${round(((m5*value) + b5) + sd5, 2)} and there is a 95% chance the stock price is between ${round(((m5*value) + b5) - 2*sd5, 2)} and ${round(((m5*value) + b5) + 2*sd5, 2)}.")
 print(f"The r^2 value for 2006 is {round(cor, 3)} meaning that only {round(cor *100, 1)}% of price varience is caused by time.")
 print(f"The r^2 value for 2017 is {round(cor5, 3)} meaning that only {round(cor5 *100, 1)}% of price varience is caused by time.")
-print(f"This shows that the data from 2017 has a stronger linear correlation than the data from 2006, this could be caused by the 2006 data set having more outliers such as the 2008 financial crisis." )
+print(f"The r^2 values show that both data sets have strong linear correlations")
