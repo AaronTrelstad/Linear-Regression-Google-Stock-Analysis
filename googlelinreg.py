@@ -192,6 +192,6 @@ print(f"Price Estimate:${round((ma*value) + ba, 2)}(2006-current), ${round((m5*v
 print(f"Average Return:{round(ma, 2)}% since 2006 and {round(m5, 2)}% since 2017")
 print(f"Using 2006 data the standard deviation is {round(sd,2)}, meaning there is a 68% chance the stock price is between ${round(((ma*value) + ba) - sd, 2)} and ${round(((ma*value) + ba) + sd, 2)} and there is a 95% chance the stock price is between ${round(((ma*value) + ba) - 2*sd, 2)} and ${round(((ma*value) + ba) + 2*sd, 2)}.")
 print(f"Using 2017 data the standard deviation is {round(sd5,2)}, meaning there is a 68% chance the stock price is between ${round(((m5*value) + b5) - sd5, 2)} and ${round(((m5*value) + b5) + sd5, 2)} and there is a 95% chance the stock price is between ${round(((m5*value) + b5) - 2*sd5, 2)} and ${round(((m5*value) + b5) + 2*sd5, 2)}.")
-print(f"The r^2 value for 2006 is {round(cor, 3)} meaning that only {round(cor *100, 1)}% of price varience is caused by time.")
-print(f"The r^2 value for 2017 is {round(cor5, 3)} meaning that only {round(cor5 *100, 1)}% of price varience is caused by time.")
+print(f"The r^2 value for 2006 is {round(cor, 3)} meaning that {round(cor *100, 1)}% of price varience is caused by time.")
+print(f"The r^2 value for 2017 is {round(cor5, 3)} meaning that {round(cor5 *100, 1)}% of price varience is caused by time.")
 print(f"The r^2 values show that both data sets have strong linear correlations")
